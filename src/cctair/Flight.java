@@ -1,16 +1,17 @@
 package cctair;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Flight implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private final long id = serialVersionUID;
-    String origin;
-    String destination;
-    String departure;
-    String arrival;
-    String dateOfFlight;
+    private String origin;
+    private String destination;
+    private Date departure;
+    private Date arrival;
+    private Date dateOfFlight;
     Airplane[] airplane = new Airplane[1];
     Pilot[] pilot = new Pilot[1];
 
@@ -20,7 +21,7 @@ public class Flight implements Serializable {
 //    • arrival time (e.g “13:30”)         ****
 //    • date of flight (e.g. “05/12/2015”) 
 //    • aircraft assigned (this should be an object);  
-    public Flight(String origin, String destination, String departure, String arrival, String dateOfFlight) {
+    public Flight(String origin, String destination, Date departure, Date arrival, Date dateOfFlight) {
         this.origin = origin;
         this.destination = destination;
         this.departure = departure;
@@ -45,15 +46,15 @@ public class Flight implements Serializable {
         this.destination = destination;
     }
 
-    public void setDeparture(String departure) {
+    public void setDeparture(Date departure) {
         this.departure = departure;
     }
 
-    public void setArrival(String arrival) {
+    public void setArrival(Date arrival) {
         this.arrival = arrival;
     }
 
-    public void setDateOfFlight(String dateOfFlight) {
+    public void setDateOfFlight(Date dateOfFlight) {
         this.dateOfFlight = dateOfFlight;
     }
 
@@ -82,15 +83,15 @@ public class Flight implements Serializable {
         return destination;
     }
 
-    public String getDeparture() {
+    public Date getDeparture() {
         return departure;
     }
 
-    public String getArrival() {
+    public Date getArrival() {
         return arrival;
     }
 
-    public String getDateOfFlight() {
+    public Date getDateOfFlight() {
         return dateOfFlight;
     }
 
@@ -98,5 +99,7 @@ public class Flight implements Serializable {
     public String toString() {
         return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane + ", pilot=" + pilot + '}';
     }
+
+    
 
 }
