@@ -9,24 +9,24 @@ public class Flight implements Serializable {
     private final long id = serialVersionUID;
     private String origin;
     private String destination;
-    private Date departure;
-    private Date arrival;
+    private String departure;
+    private String arrival;
     private Date dateOfFlight;
     Airplane[] airplane = new Airplane[1];
     Pilot[] pilot = new Pilot[1];
 
-//    • origin (e.g. “Dublin”) 
-//    • destination (e.g. “New York”) 
-//    • departure time (e.g. “10:10”)   ****
-//    • arrival time (e.g “13:30”)         ****
-//    • date of flight (e.g. “05/12/2015”) 
-//    • aircraft assigned (this should be an object);  
-    public Flight(String origin, String destination, Date departure, Date arrival, Date dateOfFlight) {
+    //Constructor
+    public Flight() {
+    }
+
+    public void setFlight(String origin, String destination, String departure, String arrival, Date dateOfFlight, Airplane airplane, Pilot pilot) {
         this.origin = origin;
         this.destination = destination;
         this.departure = departure;
         this.arrival = arrival;
         this.dateOfFlight = dateOfFlight;
+        this.airplane[0] = airplane;
+        this.pilot[0] = pilot;
     }
 
     //Setters
@@ -46,11 +46,11 @@ public class Flight implements Serializable {
         this.destination = destination;
     }
 
-    public void setDeparture(Date departure) {
+    public void setDeparture(String departure) {
         this.departure = departure;
     }
 
-    public void setArrival(Date arrival) {
+    public void setArrival(String arrival) {
         this.arrival = arrival;
     }
 
@@ -83,11 +83,11 @@ public class Flight implements Serializable {
         return destination;
     }
 
-    public Date getDeparture() {
+    public String getDeparture() {
         return departure;
     }
 
-    public Date getArrival() {
+    public String getArrival() {
         return arrival;
     }
 
@@ -99,7 +99,5 @@ public class Flight implements Serializable {
     public String toString() {
         return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane + ", pilot=" + pilot + '}';
     }
-
-    
 
 }

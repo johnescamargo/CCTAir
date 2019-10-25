@@ -16,8 +16,12 @@ public class MainCCTAir {
         //Set Up 
         pilots = setup.setPilots(pilots);
         airplanes = setup.setAircrafts(airplanes, pilots);
+        setup.setFlights(flights, airplanes, pilots);
         
-        //System.out.println(date.toString());
+        
+        System.out.println(date.toString());
+        
+        System.out.println(flights);
         
         
 
