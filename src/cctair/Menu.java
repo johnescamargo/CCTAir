@@ -8,6 +8,7 @@ package cctair;
 /**
  *
  * @author Johnes
+ * @author Mihaela
  */
 public class Menu {
     
