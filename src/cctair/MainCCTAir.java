@@ -6,6 +6,7 @@ import java.util.Date;
 public class MainCCTAir {
 
     public static void main(String[] args) {
+//        new Menu();
         Pilot[] pilots = new Pilot[25];
         Airplane[] airplanes = new Airplane[20];
         ArrayList<Flight> flights = new ArrayList<>();

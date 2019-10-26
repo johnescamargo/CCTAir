@@ -5,6 +5,8 @@
  */
 package cctair;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Johnes
@@ -12,4 +14,63 @@ package cctair;
  */
 public class Menu {
     
+    public Menu() 
+    {
+
+        String choice = null;
+        Scanner scan = new Scanner(System.in);
+        SetUp usu = new SetUp();
+
+        System.out.println("Welcome to Airline \nMENU\n");
+        System.out.println("\nSelect one option:");
+        System.out.println("1: Show a particular flight");
+        System.out.println("2: Show all the available aircraft");
+        System.out.println("3: Show a particular aircraft");
+        System.out.println("4: Show all Pilots");
+        System.out.println("5: Show a particular Pilot");
+        System.out.println("6: Create a flight");
+        System.out.println("7: Quit");
+
+        do {
+            choice = scan.nextLine();
+            switch (choice) 
+            {
+                case "1": 
+                {
+                    break;
+                }
+                case "2": 
+                {
+                    break;
+                }
+                case "3": 
+                {
+                    break;
+                }
+                case "4": 
+                {
+                    break;
+                }
+                case "5": 
+                {
+                    break;
+                }
+                case "6": 
+                {
+                    System.exit(0);
+                }
+                default: 
+                {
+                    System.out.println("You chose and invalid option. Please, try again.\n");
+                    break;
+                }
+
+            } 
+            // end of switch
+
+        } while (!choice.equals("6")); 
+        // end of do-while
+
+    }
+
 }
