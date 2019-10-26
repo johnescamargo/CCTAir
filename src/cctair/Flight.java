@@ -16,9 +16,6 @@ public class Flight implements Serializable {
     Pilot[] pilot = new Pilot[1];
 
     //Constructor
-    public Flight() {
-    }
-
     public Flight(String origin, String destination, String departure, String arrival, Date dateOfFlight, Airplane airplane, Pilot pilot) {
         this.origin = origin;
         this.destination = destination;
@@ -28,6 +25,12 @@ public class Flight implements Serializable {
         this.airplane[0] = airplane;
         this.pilot[0] = pilot;
     }
+
+    public Flight() {
+    }
+
+    
+    
 
     //Setters
     public void setAirplane(Airplane[] airplane) {
@@ -99,6 +102,5 @@ public class Flight implements Serializable {
     public String toString() {
         return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane[0] + ", pilot=" + pilot[0] + '}';
     }
-
 
 }

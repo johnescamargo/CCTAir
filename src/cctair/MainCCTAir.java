@@ -14,10 +14,10 @@ public class MainCCTAir {
         //Set Up 
         pilots = setup.setPilots(pilots);
         airplanes = setup.setAircrafts(airplanes, pilots);
-        //setup.setFlights(flights,airplanes, pilots);
-        flights = setup.setFlights(airplanes, pilots);
+        setup.setFlights(flights,airplanes, pilots);
+       // flights = setup.setFlights(airplanes, pilots);
         
-        for (Flight flight : flights) {
+        for (int i = 0; i < flights.size(); i++) {
             System.out.println(flights);
         }
         
