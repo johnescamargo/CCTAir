@@ -21,7 +21,7 @@ public class SetUp {
         "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida", "Lisbon", "London", "Rio de Janeiro"};
     String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30",};
     String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30", "23:30", "00:30"};
-    Date dateOfFlight;
+    Date dateOfFlight = new Date();
 
     Random rGen = new Random();
 
@@ -53,25 +53,23 @@ public class SetUp {
         return pilot;
     }
 
-    public void setFlights(ArrayList<Flight> flights, Airplane[] airplane, Pilot[] pilot) {
-        airplane = new Airplane[1];
-        pilot = new Pilot[1];
+    public ArrayList<Flight> setFlights( Airplane[] airplane, Pilot[] pilot) {
+        ArrayList<Flight> flights = new ArrayList<>();
         
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i < 10; i++) {
+            
             String origins = origin[rGen.nextInt(origin.length)];
             String destinations = origin[rGen.nextInt(destination.length)];
             String departures = departure[rGen.nextInt(departure.length)];
             String arrivals = arrival[rGen.nextInt(arrival.length)];
+            Pilot pilot1 = pilot[rGen.nextInt(pilot.length)];
+            Airplane airplane1 = airplane[rGen.nextInt(airplane.length)];
             Date dateOfFlights = dateOfFlight;
-            int pilots = pilot.length;
-            int airplanes = airplane.length;
 
-            System.out.println(airplane[i]);
-            System.out.println(pilot[i]);
-            flight.add(i)
+            flights.add(new Flight(origins, destinations, departures, arrivals, dateOfFlights, airplane1, pilot1));
 
-           // a.setFlight(origins, destinations, departures, arrivals, dateOfFlight, airplane, pilot);
         }
+        return flights;
 
     }
 }
