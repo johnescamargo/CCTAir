@@ -8,6 +8,7 @@ public class Airplane {
     private String make;
     private String model;
     private int capacity;
+    private Pilot pilot;
     private ArrayList<Integer> idPilot = new ArrayList<>();
 
     //Contructor
@@ -30,7 +31,7 @@ public class Airplane {
         return model;
     }
 
-    public int capacity() {
+    public int getCapacity() {
         return capacity;
     }
 
@@ -63,39 +64,15 @@ public class Airplane {
         this.idPilot = idPilot;
     }
 
-    public void assignPilot(Pilot[] pilot) {
-
-        for (int i = 0; i < pilot.length; i++) {
-            int rank = pilot[i].getRank();
-
-            if (capacity <= 250) {
-
-                if (rank >= 1) {
-                    idPilot.add(pilot[i].getIdPilot());
-                }
-
-            } else if (capacity <= 350) {
-
-                if (rank >= 2) {
-                    idPilot.add(pilot[i].getIdPilot());
-                }
-
-            } else if (capacity <= 400) {
-
-                if (rank >= 3) {
-                    idPilot.add(pilot[i].getIdPilot());
-
-                }
-
-            }
-
-        }
-
+    
+    //accordint to assigment
+    public void assignPilot(Pilot pilot) {
+        this.pilot=pilot;
     }
 
     @Override
     public String toString() {
-        return "Airplane{" + "ID Aircraft = " + idAircraft + ", Make = " + make + ", Model = " + model + ", Capacity = " + capacity + ", idPilot = " + idPilot + '}';
+        return "Airplane{" + "ID Aircraft = " + idAircraft + ", Make = " + make + ", Model = " + model + ", Capacity = " + capacity +" "+ pilot + '}';
     }
 
 }

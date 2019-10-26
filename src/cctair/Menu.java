@@ -14,15 +14,16 @@ import java.util.Scanner;
  */
 public class Menu {
     
-    public Menu() 
+    public Menu(Pilot[] Pilots) 
     {
 
         String choice = null;
         Scanner scan = new Scanner(System.in);
-        SetUp usu = new SetUp();
+        SetUp setup = new SetUp();
+        
 
-        System.out.println("Welcome to Airline \nMENU\n");
-        System.out.println("\nSelect one option:");
+        System.out.println("Welcome to Airline \nMENU");
+        System.out.println("Select one option:");
         System.out.println("1: Show a particular flight");
         System.out.println("2: Show all the available aircraft");
         System.out.println("3: Show a particular aircraft");
@@ -48,7 +49,8 @@ public class Menu {
                     break;
                 }
                 case "4": 
-                {
+                {        
+                    setup.setPilots(Pilots);
                     break;
                 }
                 case "5": 
@@ -56,6 +58,9 @@ public class Menu {
                     break;
                 }
                 case "6": 
+                {
+                }
+                case "7": 
                 {
                     System.exit(0);
                 }

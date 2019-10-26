@@ -1,5 +1,6 @@
 package cctair;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -22,7 +23,8 @@ public class SetUp {
     String[] arrival = {"17:30","18:30","19:30","20:30","21:30","22:30","23:30","00:30"};
     Date dateOfFlight;
     //Airplane[] airplane = new Airplane[1];
-    //Pilot[] pilot = new Pilot[1];
+    Pilot pilot = new Pilot();
+    Pilot[] listPilot ;
 
     //    • origin (e.g. “Dublin”) 
 //    • destination (e.g. “New York”) 
@@ -41,13 +43,54 @@ public class SetUp {
             airplane[i].setMake(makes[rGen.nextInt(makes.length)]);
             airplane[i].setModel(model[rGen.nextInt(model.length)]);
             airplane[i].setCapacity(capacity[rGen.nextInt(capacity.length)]);
-            airplane[i].assignPilot(pilot);
+            Pilot validatedPilot=verifyPilot(airplane[i].getCapacity(),pilot);
+            airplane[i].assignPilot(validatedPilot);
             System.out.println(airplane[i]);
 
         }
         return airplane;
     }
 
+    public Pilot verifyPilot(int flightCapacity,Pilot[] pilot){
+
+        Pilot myPilot;
+        
+        do{myPilot=pilot[rGen.nextInt(pilot.length)];
+        if(flightCapacity>=200 && flightCapacity<=300){
+           if (myPilot.getRank()==1){
+                return myPilot;    
+            }
+        }
+        }
+        while(myPilot.getRank()!=1);
+        
+        do{myPilot=pilot[rGen.nextInt(pilot.length)];
+        if(flightCapacity>300 && flightCapacity<300){
+           if (myPilot.getRank()==2){
+                return myPilot;    
+            }
+        }
+        }
+        while(myPilot.getRank()!=2);
+        
+        do{myPilot=pilot[rGen.nextInt(pilot.length)];
+        if(flightCapacity>=300 && flightCapacity<=400){
+           if (myPilot.getRank()==3){
+                return myPilot;    
+            }
+        }
+        }
+        while(myPilot.getRank()!=3);
+        
+        
+        return null;
+       
+    }
+    //Method to create Flights with the Planes and Pilots created, and also using the data file
+
+
+    
+    
     public Pilot[] setPilots(Pilot[] pilot) {
 
         for (int i = 0; i < pilot.length; i++) {

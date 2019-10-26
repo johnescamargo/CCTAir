@@ -6,7 +6,7 @@ import java.util.Date;
 public class MainCCTAir {
 
     public static void main(String[] args) {
-//        new Menu();
+
         Pilot[] pilots = new Pilot[25];
         Airplane[] airplanes = new Airplane[20];
         ArrayList<Flight> flights = new ArrayList<>();
@@ -14,13 +14,15 @@ public class MainCCTAir {
 
         SetUp setup = new SetUp();
         
+        
+        
         //Set Up 
         pilots = setup.setPilots(pilots);
         airplanes = setup.setAircrafts(airplanes, pilots);
         
         //System.out.println(date.toString());
         
-        
+        new Menu(pilots);
 
     }
 
