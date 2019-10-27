@@ -25,8 +25,6 @@ public class SetUp {
     //Airplane[] airplane = new Airplane[1];
     Pilot pilot = new Pilot();
 
-    Flight flight = new Flight();
-
     Pilot[] listPilot;
 
     //    • origin (e.g. “Dublin”) 
@@ -102,12 +100,13 @@ public class SetUp {
         return pilot;
     }
 
-    public ArrayList<Flight> setFlights(Airplane[] airplanes) {
-        //Array list to store the list of flights
-        ArrayList<Flight> ListFlight = new ArrayList();
+    public Flight[] setFlights(Flight[] flight,Airplane[] airplanes) {
+
 
         for(int i=0;i<10;i++){
-        flight.setAirplane(airplanes[rGen.nextInt(airplanes.length)]);
+        flight[i]=new Flight();
+        flight[i].setId(201+i);
+        flight[i].setAirplane(airplanes[rGen.nextInt(airplanes.length)]);
         
         String dest;
         String ori;
@@ -115,16 +114,15 @@ public class SetUp {
             dest=destination[rGen.nextInt(destination.length)];
             ori=origin[rGen.nextInt(origin.length)];
         }while(ori==dest);
-        flight.setOrigin(ori);
-        flight.setDestination(dest);
-        flight.setDeparture(departure[rGen.nextInt(departure.length)]);
-        flight.setArrival(arrival[rGen.nextInt(arrival.length)]);
-        flight.setDateOfFlight(arrival[rGen.nextInt(arrival.length)]);
-        flight.setDateOfFlight(randomDate());
-        System.out.println(flight);
-        ListFlight.add(flight);
+        flight[i].setOrigin(ori);
+        flight[i].setDestination(dest);
+        flight[i].setDeparture(departure[rGen.nextInt(departure.length)]);
+        flight[i].setArrival(arrival[rGen.nextInt(arrival.length)]);
+        flight[i].setDateOfFlight(arrival[rGen.nextInt(arrival.length)]);
+        flight[i].setDateOfFlight(randomDate());
+        System.out.println(flight[i]);
         }
-        return ListFlight;
+        return flight;
 
     }
 

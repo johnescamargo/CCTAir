@@ -3,10 +3,9 @@ package cctair;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Flight implements Serializable {
+public class Flight  {
 
-    private static final long serialVersionUID = 1L;
-    private final long id = serialVersionUID;
+    private int id;
     private String origin;
     private String destination;
     private String departure;
@@ -34,6 +33,10 @@ public class Flight implements Serializable {
     }
 
     //Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public void setAirplane(Airplane airplane) {
         this.airplane = airplane;
     }
@@ -63,9 +66,6 @@ public class Flight implements Serializable {
     }
 
     //Getters
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public long getId() {
         return id;
@@ -101,7 +101,7 @@ public class Flight implements Serializable {
 
     @Override
     public String toString() {
-        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane;
+        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + " " + airplane;
     }
 
     

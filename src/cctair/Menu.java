@@ -14,14 +14,12 @@ import java.util.Scanner;
  * @author Mihaela
  */
 public class Menu {
+Scanner scan = new Scanner(System.in);
     
-    public Menu(Pilot[] pilots, Airplane[] airplanes, ArrayList<Flight> flights)
+    public Menu(Pilot[] pilots, Airplane[] airplanes, Flight[] flights)
     {
-
         String choice = null;
-        Scanner scan = new Scanner(System.in);
         SetUp setup = new SetUp();
-        
 
         System.out.println("Welcome to Airline \nMENU");
         System.out.println("Select one option:");
@@ -39,23 +37,32 @@ public class Menu {
             {
                 case "1": 
                 {
+                    oneFlight(flights);
+                    new Menu(pilots,airplanes,flights);
                     break;
                 }
                 case "2": 
                 {
+                    setup.setAircrafts(airplanes, pilots);
+                    new Menu(pilots,airplanes,flights);
                     break;
                 }
                 case "3": 
                 {
+                    oneAircraft(airplanes);
+                    new Menu(pilots,airplanes,flights);
                     break;
                 }
                 case "4": 
                 {        
                     setup.setPilots(pilots);
+                    new Menu(pilots,airplanes,flights);
                     break;
                 }
                 case "5": 
                 {
+                    onePilot(pilots);
+                    new Menu(pilots,airplanes,flights);
                     break;
                 }
                 case "6": 
@@ -78,6 +85,23 @@ public class Menu {
         // end of do-while
 
     }
+    
+    public void oneFlight(Flight[] flights){
+        System.out.println("Choose an flight between 1 and "+ flights.length);
+        int id = scan.nextInt();
+        System.out.println(flights[id-1]);
+    }
 
+    public void oneAircraft(Airplane[] airplanes){
+        System.out.println("Choose an Airplane between 1 and "+ airplanes.length);
+        int id = scan.nextInt();
+        System.out.println(airplanes[id]);   
+    }
+    
+    public void onePilot(Pilot[] pilots){
+        System.out.println("Choose an Pilot between 1 and "+ pilots.length);
+        int id = scan.nextInt();
+        System.out.println(pilots[id]);   
+    }
 
 }
