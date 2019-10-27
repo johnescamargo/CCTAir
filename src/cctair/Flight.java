@@ -1,43 +1,48 @@
 package cctair;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Flight implements Serializable {
+public class Flight {
 
-    private static final long serialVersionUID = 1L;
-    private final long id = serialVersionUID;
+    private int id;
     private String origin;
     private String destination;
     private String departure;
     private String arrival;
     private Date dateOfFlight;
-    Airplane[] airplane = new Airplane[1];
-    Pilot[] pilot = new Pilot[1];
+    Airplane airplane = new Airplane();
+    Pilot pilot = new Pilot();
 
     //Constructor
-    public Flight(String origin, String destination, String departure, String arrival, Date dateOfFlight, Airplane airplane, Pilot pilot) {
+    public Flight(int id, String origin, String destination, String departure, String arrival, Date dateOfFlight, Airplane airplane, Pilot pilot) {
         this.origin = origin;
         this.destination = destination;
         this.departure = departure;
         this.arrival = arrival;
         this.dateOfFlight = dateOfFlight;
-        this.airplane[0] = airplane;
-        this.pilot[0] = pilot;
+        this.airplane = airplane;
+        this.pilot = pilot;
+        this.id = id;
     }
 
-    public Flight() {
-    }
-
-    
-    
+//    public void setFlight(int id, String origin, String destination, String departure, String arrival, Date dateOfFlight, Airplane airplane, Pilot pilot) {
+//        this.origin = origin;
+//        this.destination = destination;
+//        this.departure = departure;
+//        this.arrival = arrival;
+//        this.dateOfFlight = dateOfFlight;
+//        this.airplane = airplane;
+//        this.pilot = pilot;
+//        this.id = id;
+//
+//    }
 
     //Setters
-    public void setAirplane(Airplane[] airplane) {
+    public void setAirplane(Airplane airplane) {
         this.airplane = airplane;
     }
 
-    public void setPilot(Pilot[] pilot) {
+    public void setPilot(Pilot pilot) {
         this.pilot = pilot;
     }
 
@@ -62,19 +67,19 @@ public class Flight implements Serializable {
     }
 
     //Getters
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public long getId() {
         return id;
     }
 
-    public Airplane[] getAirplane() {
+    public Airplane getAirplane() {
         return airplane;
     }
 
-    public Pilot[] getPilot() {
+    public Pilot getPilot() {
         return pilot;
     }
 
@@ -100,7 +105,7 @@ public class Flight implements Serializable {
 
     @Override
     public String toString() {
-        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane[0] + ", pilot=" + pilot[0] + '}';
+        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane + ", pilot=" + pilot + '}';
     }
 
 }
