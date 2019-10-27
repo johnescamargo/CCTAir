@@ -9,11 +9,11 @@ public class Flight implements Serializable {
     private final long id = serialVersionUID;
     private String origin;
     private String destination;
-    private Date departure;
-    private Date arrival;
-    private Date dateOfFlight;
-    Airplane[] airplane = new Airplane[1];
-    Pilot[] pilot = new Pilot[1];
+    private String departure;
+    private String arrival;
+    private String dateOfFlight;
+    Airplane airplane = new Airplane();
+    Pilot pilot = new Pilot();
 
 //    • origin (e.g. “Dublin”) 
 //    • destination (e.g. “New York”) 
@@ -21,20 +21,24 @@ public class Flight implements Serializable {
 //    • arrival time (e.g “13:30”)         ****
 //    • date of flight (e.g. “05/12/2015”) 
 //    • aircraft assigned (this should be an object);  
-    public Flight(String origin, String destination, Date departure, Date arrival, Date dateOfFlight) {
+    public Flight(String origin, String destination, String departure, String arrival, String dateOfFlight) {
         this.origin = origin;
         this.destination = destination;
         this.departure = departure;
         this.arrival = arrival;
         this.dateOfFlight = dateOfFlight;
     }
+    
+    public Flight(){
+        
+    }
 
     //Setters
-    public void setAirplane(Airplane[] airplane) {
+    public void setAirplane(Airplane airplane) {
         this.airplane = airplane;
     }
 
-    public void setPilot(Pilot[] pilot) {
+    public void setPilot(Pilot pilot) {
         this.pilot = pilot;
     }
 
@@ -46,15 +50,15 @@ public class Flight implements Serializable {
         this.destination = destination;
     }
 
-    public void setDeparture(Date departure) {
+    public void setDeparture(String departure) {
         this.departure = departure;
     }
 
-    public void setArrival(Date arrival) {
+    public void setArrival(String arrival) {
         this.arrival = arrival;
     }
 
-    public void setDateOfFlight(Date dateOfFlight) {
+    public void setDateOfFlight(String dateOfFlight) {
         this.dateOfFlight = dateOfFlight;
     }
 
@@ -67,11 +71,11 @@ public class Flight implements Serializable {
         return id;
     }
 
-    public Airplane[] getAirplane() {
+    public Airplane getAirplane() {
         return airplane;
     }
 
-    public Pilot[] getPilot() {
+    public Pilot getPilot() {
         return pilot;
     }
 
@@ -83,21 +87,21 @@ public class Flight implements Serializable {
         return destination;
     }
 
-    public Date getDeparture() {
+    public String getDeparture() {
         return departure;
     }
 
-    public Date getArrival() {
+    public String getArrival() {
         return arrival;
     }
 
-    public Date getDateOfFlight() {
+    public String getDateOfFlight() {
         return dateOfFlight;
     }
 
     @Override
     public String toString() {
-        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane + ", pilot=" + pilot + '}';
+        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane;
     }
 
     

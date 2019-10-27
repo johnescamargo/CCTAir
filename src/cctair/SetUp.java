@@ -19,12 +19,15 @@ public class SetUp {
         "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida", "Lisbon", "London", "Rio de Janeiro"};
     String[] destination = {"Dublin", "Porto", "Paris", "Sao Paulo",
         "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida", "Lisbon", "London", "Rio de Janeiro"};
-    String[] departure = {"10:30","11:30","12:30","13:30","14:30","15:30","16:30",};
-    String[] arrival = {"17:30","18:30","19:30","20:30","21:30","22:30","23:30","00:30"};
+    String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30",};
+    String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30", "23:30", "00:30"};
     Date dateOfFlight;
     //Airplane[] airplane = new Airplane[1];
     Pilot pilot = new Pilot();
-    Pilot[] listPilot ;
+
+    Flight flight = new Flight();
+
+    Pilot[] listPilot;
 
     //    • origin (e.g. “Dublin”) 
 //    • destination (e.g. “New York”) 
@@ -43,7 +46,7 @@ public class SetUp {
             airplane[i].setMake(makes[rGen.nextInt(makes.length)]);
             airplane[i].setModel(model[rGen.nextInt(model.length)]);
             airplane[i].setCapacity(capacity[rGen.nextInt(capacity.length)]);
-            Pilot validatedPilot=verifyPilot(airplane[i].getCapacity(),pilot);
+            Pilot validatedPilot = verifyPilot(airplane[i].getCapacity(), pilot);
             airplane[i].assignPilot(validatedPilot);
             System.out.println(airplane[i]);
 
@@ -51,46 +54,42 @@ public class SetUp {
         return airplane;
     }
 
-    public Pilot verifyPilot(int flightCapacity,Pilot[] pilot){
+    public Pilot verifyPilot(int flightCapacity, Pilot[] pilot) {
 
         Pilot myPilot;
-        
-        do{myPilot=pilot[rGen.nextInt(pilot.length)];
-        if(flightCapacity>=200 && flightCapacity<=300){
-           if (myPilot.getRank()==1){
-                return myPilot;    
-            }
+
+        if (flightCapacity >= 200 && flightCapacity <= 300) {
+            do {
+                myPilot = pilot[rGen.nextInt(pilot.length)];
+                if (myPilot.getRank() == 1) {
+                    return myPilot;
+                }
+            } while (myPilot.getRank() != 1);
         }
+
+        if (flightCapacity > 300 && flightCapacity < 300) {
+            do {
+                myPilot = pilot[rGen.nextInt(pilot.length)];
+                if (myPilot.getRank() == 2) {
+                    return myPilot;
+                }
+            } while (myPilot.getRank() != 2);
         }
-        while(myPilot.getRank()!=1);
-        
-        do{myPilot=pilot[rGen.nextInt(pilot.length)];
-        if(flightCapacity>300 && flightCapacity<300){
-           if (myPilot.getRank()==2){
-                return myPilot;    
-            }
+
+        if (flightCapacity >= 300 && flightCapacity <= 400) {
+            do {
+                myPilot = pilot[rGen.nextInt(pilot.length)];
+                if (myPilot.getRank() == 3) {
+                    return myPilot;
+                }
+            } while (myPilot.getRank() != 3);
         }
-        }
-        while(myPilot.getRank()!=2);
-        
-        do{myPilot=pilot[rGen.nextInt(pilot.length)];
-        if(flightCapacity>=300 && flightCapacity<=400){
-           if (myPilot.getRank()==3){
-                return myPilot;    
-            }
-        }
-        }
-        while(myPilot.getRank()!=3);
-        
-        
+
         return null;
-       
+
     }
     //Method to create Flights with the Planes and Pilots created, and also using the data file
 
-
-    
-    
     public Pilot[] setPilots(Pilot[] pilot) {
 
         for (int i = 0; i < pilot.length; i++) {
@@ -103,12 +102,41 @@ public class SetUp {
         return pilot;
     }
 
-    public Flight[] setFlights(Flight[] flight) {
+    public ArrayList<Flight> setFlights(Airplane[] airplanes) {
+        //Array list to store the list of flights
+        ArrayList<Flight> ListFlight = new ArrayList();
 
-        for (int i = 0; i <= 10; i++) {
-
+        for(int i=0;i<10;i++){
+        flight.setAirplane(airplanes[rGen.nextInt(airplanes.length)]);
+        
+        String dest;
+        String ori;
+        do{
+            dest=destination[rGen.nextInt(destination.length)];
+            ori=origin[rGen.nextInt(origin.length)];
+        }while(ori==dest);
+        flight.setOrigin(ori);
+        flight.setDestination(dest);
+        flight.setDeparture(departure[rGen.nextInt(departure.length)]);
+        flight.setArrival(arrival[rGen.nextInt(arrival.length)]);
+        flight.setDateOfFlight(arrival[rGen.nextInt(arrival.length)]);
+        flight.setDateOfFlight(randomDate());
+        System.out.println(flight);
+        ListFlight.add(flight);
         }
-        return flight;
+        return ListFlight;
 
     }
+
+    public String randomDate() {
+        String flightDate = null;
+        int day = rGen.nextInt(31);
+        int month = rGen.nextInt(2) + 11;
+        int year = 2019;
+
+        flightDate = String.valueOf(year + "/" + month + "/" + day);
+
+        return flightDate;
+    }
+
 }

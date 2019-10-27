@@ -5,6 +5,7 @@
  */
 package cctair;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Scanner;
  */
 public class Menu {
     
-    public Menu(Pilot[] Pilots) 
+    public Menu(Pilot[] pilots, Airplane[] airplanes, ArrayList<Flight> flights)
     {
 
         String choice = null;
@@ -50,7 +51,7 @@ public class Menu {
                 }
                 case "4": 
                 {        
-                    setup.setPilots(Pilots);
+                    setup.setPilots(pilots);
                     break;
                 }
                 case "5": 
@@ -77,5 +78,6 @@ public class Menu {
         // end of do-while
 
     }
+
 
 }
