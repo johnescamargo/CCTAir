@@ -93,13 +93,12 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "_________________________________________________________" +"\n"
-                + "Flight ID: " + id + "\n"
+        return "Flight ID: " + id + "\n"
                 + "Origin:" + origin + "\n"
                 + "Destination: " + destination + "\n"
                 + "Departure: " + departure + "\n"
                 + "Arrival: " + arrival + "\n"
-                + "Airplane: " + airplane.getMake()+ "-" +airplane.getModel() + "\n"
+                + "Airplane: " + airplane.getMake() + "-" + airplane.getModel() + "\n"
                 + "Pilot: " + pilot.getName() + "\n"
                 + "Flight's date created: " + dateOfFlight + "\n"
                 + "_________________________________________________________"
