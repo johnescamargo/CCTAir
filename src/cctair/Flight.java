@@ -25,18 +25,6 @@ public class Flight {
         this.id = id;
     }
 
-//    public void setFlight(int id, String origin, String destination, String departure, String arrival, Date dateOfFlight, Airplane airplane, Pilot pilot) {
-//        this.origin = origin;
-//        this.destination = destination;
-//        this.departure = departure;
-//        this.arrival = arrival;
-//        this.dateOfFlight = dateOfFlight;
-//        this.airplane = airplane;
-//        this.pilot = pilot;
-//        this.id = id;
-//
-//    }
-
     //Setters
     public void setAirplane(Airplane airplane) {
         this.airplane = airplane;
@@ -105,7 +93,17 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" + "id=" + id + ", origin=" + origin + ", destination=" + destination + ", departure=" + departure + ", arrival=" + arrival + ", dateOfFlight=" + dateOfFlight + ", airplane=" + airplane + ", pilot=" + pilot + '}';
+        return "_________________________________________________________" +"\n"
+                + "Flight ID: " + id + "\n"
+                + "Origin:" + origin + "\n"
+                + "Destination: " + destination + "\n"
+                + "Departure: " + departure + "\n"
+                + "Arrival: " + arrival + "\n"
+                + "Airplane: " + airplane.getMake()+ "-" +airplane.getModel() + "\n"
+                + "Pilot: " + pilot.getName() + "\n"
+                + "Flight's date created: " + dateOfFlight + "\n"
+                + "_________________________________________________________"
+                + "\n";
     }
 
 }
