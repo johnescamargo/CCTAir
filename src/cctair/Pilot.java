@@ -11,6 +11,9 @@ public class Pilot {
     public Pilot() {
         this.available = false;
     }
+    
+     public Pilot(Pilot pilot) {
+    }
 
     //Getters
     public String getName() {
