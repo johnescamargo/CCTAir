@@ -6,6 +6,7 @@
 package cctair;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -23,7 +24,7 @@ public class Menu {
     int j;
 
     public void mainMenu(Pilot[] pilots, Airplane[] airplanes, ArrayList<Flight> flights) {
-        int choice;
+        String choice;
         do {
 
             System.out.println("Welcome to Airline \nMENU");
@@ -34,46 +35,66 @@ public class Menu {
             System.out.println("4: Show all Pilots");
             System.out.println("5: Show a particular Pilot");
             System.out.println("6: Create a flight");
-            System.out.println("7: Quit");
-            choice = scan.nextInt();
+            System.out.println("7: Show all Pilots");
+            System.out.println("8: Quit");
+            choice = scan.next();
 
             switch (choice) {
-                case 1: //1: Show a particular flight
+                case "1": //1: Show a particular flight
                     System.out.println("Choose an flight between 1 and " + flights.size());
-                    id = scan.nextInt() - 1;
-                    System.out.println(flights.get(id));
+                    try {
+                        id = scan.nextInt() - 1;
+                        int a = flights.size();
+                        if (id < a) {
+                            System.out.println(flights.get(id));
+                            break;
+                        } else {
+                            System.out.println("You chose and invalid option. Please, try again.\n");
+                        }
+
+                    } catch (InputMismatchException e) {
+                        System.out.println("You chose and invalid option. Please, try again.\n");
+                        break;
+                    }
                     break;
-                case 2:  //2: Show all the available aircraft
+                case "2":  //2: Show all the available aircraft
                     showAvailableAirplanes(airplanes);// Call method 
                     break;
-                case 3://3: Show a particular aircraft"
+                case "3"://3: Show a particular aircraft"
                     System.out.println("Choose an Airplane between 1 and " + airplanes.length);
                     id = scan.nextInt();
                     System.out.println(airplanes[id]);
                     break;
-                case 4: //4: Show all Pilots
+                case "4": //4: Show all Pilots
                     for (Pilot airplane : pilots) {
                         System.out.println(airplane);
                     }
                     break;
-                case 5:  // 5: Show a particular Pilot
+                case "5":  // 5: Show a particular Pilot
                     System.out.println("Choose an Pilot between 1 and " + pilots.length);
                     id = scan.nextInt();
                     System.out.println(pilots[id]);
                     break;
-                case 6://Create a Flight
+                case "6"://Create a Flight
                     createFlight(flights, airplanes, pilots);
                     break;
-                case 7:
+
+                case "7"://Display all 
+                    for (Flight flight1 : flights) {
+                        System.out.println(flight1);
+                    }
+                    break;
+                case "8"://Exit
                     System.out.println("Exiting...");
                     System.exit(0);
+
                 default:
                     System.out.println("You chose and invalid option. Please, try again.\n");
                     break;
             }
             // end of switch
 
-        } while (choice != 7);
+        } while (!"8".equals(choice));
         // end of do-while
 
     }
@@ -114,7 +135,6 @@ public class Menu {
             System.out.println("pilots arrayList :  " + pilotsAirplane1);
         }
 
- 
         System.out.println("Type in the Origin from the list above");
         origin = scan.next();
 
@@ -123,8 +143,8 @@ public class Menu {
 
         System.out.println("Type in Departure time: (Ex. 10:20)");
         departureTime = scan.next();
-        
-          for (int i = 0; i < setup.destination.length; i++) {
+
+        for (int i = 0; i < setup.destination.length; i++) {
             System.out.println("" + setup.destination[i]);
         }
 

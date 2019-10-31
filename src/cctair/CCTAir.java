@@ -17,13 +17,12 @@ public class CCTAir {
         pilots = setup.setPilots(pilots);
         airplanes = setup.setAircrafts(airplanes, pilots);
         flights = setup.setFlights(flights, airplanes, pilots);
-        setup.setTimeRandomly(flights);
         a.setTime(flights);
         // ---------------------------------------------------------------------
 
-        for (int i = 0; i < flights.size(); i++) {
-            System.out.println(flights.get(i));
-        }
+//        for (int i = 0; i < flights.size(); i++) {
+//            System.out.println(flights.get(i));
+//        }
 
         menu.mainMenu(pilots, airplanes, flights);
 

@@ -109,7 +109,7 @@ public class Airplane {
                 + "     ID Aircraft: " + idAircraft + "\n"
                 + "     Aircraft: " + make + "-" + model + "\n"
                 + "     Capacity: " + capacity + " Seats" + "\n"
-                + "     Pilot: " + idPilot + "\n"
+                + "     Pilots ID: " + idPilot + "\n"
                 + " Availability: "+ isAvailableToString(available) + "\n"
                 + "_________________________________________________________"
                 + "\n";

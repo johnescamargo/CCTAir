@@ -47,7 +47,27 @@ public class DepartureArrivalTime {
                     || "Cork".equals(flights.get(i).getOrigin()) && "Rome".equals(flights.get(i).getDestination())) {
                 flight.schedule("09:00", "11:05");
             }
-            
+
+            if ("Dublin".equals(flights.get(i).getOrigin()) && "Cork".equals(flights.get(i).getDestination())
+                    || "Cork".equals(flights.get(i).getOrigin()) && "Dublin".equals(flights.get(i).getDestination())) {
+                flight.schedule("10:10", "10:40");
+            }
+
+            if ("Dublin".equals(flights.get(i).getOrigin()) && "Lisbon".equals(flights.get(i).getDestination())
+                    || "Cork".equals(flights.get(i).getOrigin()) && "Lisbon".equals(flights.get(i).getDestination())) {
+                flight.schedule("09:00", "11:05");
+            }
+
+            if ("Dublin".equals(flights.get(i).getOrigin()) && "London".equals(flights.get(i).getDestination())
+                    || "Cork".equals(flights.get(i).getOrigin()) && "London".equals(flights.get(i).getDestination())) {
+                flight.schedule("09:00", "11:05");
+            }
+
+            if ("Dublin".equals(flights.get(i).getOrigin()) && "Glasgow".equals(flights.get(i).getDestination())
+                    || "Cork".equals(flights.get(i).getOrigin()) && "Glasgow".equals(flights.get(i).getDestination())) {
+                flight.schedule("09:00", "11:05");
+            }
+
         }
 
     }

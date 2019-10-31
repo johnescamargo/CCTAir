@@ -83,22 +83,23 @@ public class SetUp {
                 id++;
             } else {
                 id--;
+                i--;
             }
         }
         return flights;
 
     }
 
-    public void setTimeRandomly(ArrayList<Flight> flights) {
-        Flight a = new Flight();
-        for (int i = 0; i < flights.size(); i++) {
-            a = flights.get(i);
-
-            a.setDepartureTime(departure[rGen.nextInt(departure.length)]);
-            a.setArrivalTime(arrival[rGen.nextInt(arrival.length)]);
-
-        }
-
-    }
+//    public void setTimeRandomly(ArrayList<Flight> flights) {
+//        Flight a = new Flight();
+//        for (int i = 0; i < flights.size(); i++) {
+//            a = flights.get(i);
+//
+//            a.setDepartureTime(departure[rGen.nextInt(departure.length)]);
+//            a.setArrivalTime(arrival[rGen.nextInt(arrival.length)]);
+//
+//        }
+//
+//    }
 
 }
