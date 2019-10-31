@@ -1,27 +1,36 @@
 package cctair;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Random;
 
 public class SetUp {
 
     //Global variables
-    String[] names = {"John", "Mary", "Dave", "Joshua", "Rebecca", "Anne", "Mark"};
-    String[] surnames = {" Jones", " O'Camargo", " O'Silva", " Gerrard", " Gate", " Drinkwater", " Python", " Vimm"};
+    String[] names = {"John", "Mary", "Dave", "Joshua", "Rebecca", "Anne",
+        "Mark"};
+    String[] surnames = {" Jones", " O'Camargo", " O'Silva", " Gerrard",
+        " Gate", " Drinkwater", " Python", " Vimm"};
 
     String[] makes = {"Embraer", "Boing", "Airbus"};
-    String[] model = {"707", "860", "870", "890", "830", "353", "160", "855", "700"};
+    int[] model = {707, 860, 870, 890, 830, 353, 160, 855,
+        700};
     int[] capacity = {300, 400, 350, 200, 250, 400};
     int[] rank = {1, 2, 3};
 
     String[] origin = {"Dublin", "Porto", "Paris", "Sao Paulo",
-        "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida", "Lisbon", "London", "Rio de Janeiro"};
+        "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida",
+        "Lisbon", "London", "Rio de Janeiro"};
     String[] destination = {"Dublin", "Porto", "Paris", "Sao Paulo",
-        "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida", "Lisbon", "London", "Rio de Janeiro"};
-    String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30"};
-    String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30", "23:30", "00:30"};
-    Date dateOfFlight = new Date();
+        "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida",
+        "Lisbon", "London", "Rio de Janeiro"};
+    String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30",
+        "16:30"};
+    String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30",
+        "23:30", "00:30"};
+    String[] date = {"30/11/2019", "20/11/2019", "29/11/2019", "28/11/2019",
+        "17/11/2019", "21/11/2019", "25/11/2019", "19/11/2019",
+        "04/12/2019", "05/12/2019", "06/12/2019"};
+
     int id = 1;
 
     Random rGen = new Random();
@@ -55,33 +64,43 @@ public class SetUp {
     }
 
     public ArrayList<Flight> setFlights(ArrayList<Flight> flights, Airplane[] airplane, Pilot[] pilot) {
-        Pilot pilots[] = new Pilot[26];
-        Airplane airplanes[] = new Airplane[20];
+        Pilot pilots[] = new Pilot[18];
+        Airplane airplanes[] = new Airplane[15];
         String origins = "";
         String destinations = "";
-        String departures = "";
-        String arrivals = "";
+        String dates = "";
 
         System.arraycopy(pilot, 0, pilots, 0, airplane.length);
 
         System.arraycopy(airplane, 0, airplanes, 0, airplane.length);
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i < 10; i++) {
 
             origins = origin[rGen.nextInt(origin.length)];
             destinations = destination[rGen.nextInt(destination.length)];
-            departures = departure[rGen.nextInt(departure.length)];
-            arrivals = arrival[rGen.nextInt(arrival.length)];
             pilots[i] = pilot[rGen.nextInt(pilot.length)];
             airplanes[i] = airplane[rGen.nextInt(airplane.length)];
-            Date dateOfFlights = dateOfFlight;
+            dates = date[rGen.nextInt(date.length)];
 
-            flights.add(new Flight(id, origins, destinations, departures, arrivals, dateOfFlight, airplane[i], pilot[i]));
+            flights.add(new Flight(id, origins, destinations, dates, airplanes[i], pilots[i]));
+      
 
             id++;
         }
         return flights;
 
     }
+
+    public void setTimeRandomly(ArrayList<Flight> flights) {
+        Flight a = new Flight();
+        for (int i = 0; i < flights.size(); i++) {
+            a = flights.get(i);
+            a.setDepartureTime(departure[rGen.nextInt(departure.length)]);
+            a.setArrivalTime(arrival[rGen.nextInt(arrival.length)]);
+
+        }
+
+    }
+
 
 }

@@ -5,9 +5,11 @@ public class Pilot {
     private int idPilot;
     private String name;
     private int rank;
+    boolean available;
 
     //Contructor
     public Pilot() {
+        this.available = false;
     }
 
     //Getters
@@ -23,6 +25,11 @@ public class Pilot {
         return rank;
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    //Setters
     public void setIdPilot(int idPilot) {
         this.idPilot = idPilot;
     }
@@ -31,15 +38,30 @@ public class Pilot {
         this.name = name;
     }
 
-    //Setters
     public void setRank(int rank) {
         this.rank = rank;
     }
 
-    @Override
-    public String toString() {
-        return "Pilot{" + "idPilot=" + idPilot + ", name=" + name + ", rank=" + rank + '}';
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
-    
+    public String isAvailableToString(boolean available) {
+        if (available == false) {
+            return "Available";
+        } else {
+            return "Not Available";
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Pilot ID: " + idPilot + "\n"
+                + "     Name: " + name + "\n"
+                + "     Rank: " + rank + "\n"
+                + "     Availability: " + isAvailableToString(available) + "\n"
+                + "_________________________________________________________";
+    }
+
 }

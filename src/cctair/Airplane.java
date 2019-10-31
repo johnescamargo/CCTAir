@@ -6,16 +6,18 @@ public class Airplane {
 
     private int idAircraft;
     private String make;
-    private String model;
+    private int model;
     private int capacity;
     private ArrayList<Integer> idPilot = new ArrayList<>();
+    boolean available;
 
     //Contructor
-    public Airplane(int idAircraft, String make, String model, int capacity) {
+    public Airplane(int idAircraft, String make, int model, int capacity) {
         this.idAircraft = idAircraft;
         this.make = make;
         this.model = model;
         this.capacity = capacity;
+        this.available = false;
     }
 
     public Airplane() {
@@ -26,7 +28,7 @@ public class Airplane {
         return make;
     }
 
-    public String getModel() {
+    public int getModel() {
         return model;
     }
 
@@ -42,12 +44,16 @@ public class Airplane {
         return idPilot;
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
     //Setters
     public void setMake(String make) {
         this.make = make;
     }
 
-    public void setModel(String model) {
+    public void setModel(int model) {
         this.model = model;
     }
 
@@ -63,39 +69,51 @@ public class Airplane {
         this.idPilot = idPilot;
     }
 
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public String isAvailableToString(boolean available) {
+        if (available == false) {
+            return "Available";
+        } else {
+            return "Not Available";
+        }
+
+    }
+
     public void assignPilot(Pilot[] pilot) {
 
-        for (int i = 0; i < pilot.length; i++) {
-            int rank = pilot[i].getRank();
-
+        for (Pilot pilot1 : pilot) {
+            int rank = pilot1.getRank();
             if (capacity <= 250) {
-
                 if (rank >= 1) {
-                    idPilot.add(pilot[i].getIdPilot());
+                    idPilot.add(pilot1.getIdPilot());
                 }
-
             } else if (capacity <= 350) {
-
                 if (rank >= 2) {
-                    idPilot.add(pilot[i].getIdPilot());
+                    idPilot.add(pilot1.getIdPilot());
                 }
-
             } else if (capacity <= 400) {
-
                 if (rank >= 3) {
-                    idPilot.add(pilot[i].getIdPilot());
-
+                    idPilot.add(pilot1.getIdPilot());
                 }
-
             }
-
         }
 
     }
 
     @Override
     public String toString() {
-        return "Airplane{" + "ID Aircraft = " + idAircraft + ", Make = " + make + ", Model = " + model + ", Capacity = " + capacity + ", idPilot = " + idPilot + '}';
+        return "Airplane Information: " + "\n"
+                + "     ID Aircraft: " + idAircraft + "\n"
+                + "     Aircraft: " + make + "-" + model + "\n"
+                + "     Capacity: " + capacity + " Seats" + "\n"
+                + "     Pilot: " + idPilot + "\n"
+                + " Availability: "+ isAvailableToString(available) + "\n"
+                + "_________________________________________________________"
+                + "\n";
+
     }
 
 }
