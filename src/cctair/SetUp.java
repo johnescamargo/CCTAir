@@ -17,12 +17,10 @@ public class SetUp {
     int[] capacity = {300, 400, 350, 200, 250, 400};
     int[] rank = {1, 2, 3};
 
-    String[] origin = {"Dublin", "Porto", "Paris", "Sao Paulo",
-        "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida",
-        "Lisbon", "London", "Rio de Janeiro"};
-    String[] destination = {"Dublin", "Porto", "Paris", "Sao Paulo",
-        "Tokio", "Liverpool", "Manchester", "Rome", "New York", "Florida",
-        "Lisbon", "London", "Rio de Janeiro"};
+    String[] origin = {"Dublin", "Cork"};
+    String[] destination = {"Dublin", "Porto", "Paris", "Bucharest",
+        "Liverpool", "Manchester", "Rome", "Cork",
+        "Lisbon", "London", "Glasgow"};
     String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30",
         "16:30"};
     String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30",
@@ -45,8 +43,6 @@ public class SetUp {
             airplane[i].setModel(model[rGen.nextInt(model.length)]);
             airplane[i].setCapacity(capacity[rGen.nextInt(capacity.length)]);
             airplane[i].assignPilot(pilot);
-            //  System.out.println(airplane[i]);
-
         }
         return airplane;
     }
@@ -82,10 +78,12 @@ public class SetUp {
             airplanes[i] = airplane[rGen.nextInt(airplane.length)];
             dates = date[rGen.nextInt(date.length)];
 
-            flights.add(new Flight(id, origins, destinations, dates, airplanes[i], pilots[i]));
-      
-
-            id++;
+            if (!origins.equals(destinations)) {
+                flights.add(new Flight(id, origins, destinations, dates, airplanes[i], pilots[i]));
+                id++;
+            } else {
+                id--;
+            }
         }
         return flights;
 
@@ -95,12 +93,12 @@ public class SetUp {
         Flight a = new Flight();
         for (int i = 0; i < flights.size(); i++) {
             a = flights.get(i);
+
             a.setDepartureTime(departure[rGen.nextInt(departure.length)]);
             a.setArrivalTime(arrival[rGen.nextInt(arrival.length)]);
 
         }
 
     }
-
 
 }

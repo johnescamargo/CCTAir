@@ -106,12 +106,16 @@ public class Flight {
 
     //Method one
     public void schedule(String arrivalTime) {
+
         this.arrivalTime = arrivalTime;
 
     }
 
     //Method two
-    public void schedule(String arrivalTime, String departureTime) {
+    public void schedule(String departureTime, String arrivalTime) {
+        
+        
+        
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
 

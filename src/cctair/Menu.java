@@ -17,6 +17,7 @@ public class Menu {
 
     Scanner scan = new Scanner(System.in);
     ArrayList<Pilot> pilotsAirplane = new ArrayList<>();
+    SetUp setup = new SetUp();
 
     int id;
     int j;
@@ -78,13 +79,14 @@ public class Menu {
     }
 
     public void createFlight(ArrayList<Flight> flights, Airplane[] airplanes, Pilot[] pilot) {
-        
-        Airplane airplane = new Airplane();      
+
+        Airplane airplane = new Airplane();
         String origin = "";
         String destination = "";
         String departureTime;
         String arrivalTime;
         String dateOfFlight;
+        int idPilot;
         int idAirplane;
         int idArrayPilot = 0;
 
@@ -106,31 +108,35 @@ public class Menu {
         System.out.println("Choose one Pilot from the list typeing in the ID");
 
         showAvailablePilotsforAnAirplane(airplane, pilot);//Receive array of Pilots
-        int idPilot = scan.nextInt();
+        idPilot = scan.nextInt();
 
         for (Pilot pilotsAirplane1 : pilotsAirplane) {
             System.out.println("pilots arrayList :  " + pilotsAirplane1);
         }
 
-        
-        System.out.println("Type in the Origin");
-        origin = scan.nextLine();
+ 
+        System.out.println("Type in the Origin from the list above");
+        origin = scan.next();
 
         System.out.println("Type in the Destination");
-        destination = scan.nextLine();
+        destination = scan.next();
 
         System.out.println("Type in Departure time: (Ex. 10:20)");
-        departureTime = scan.nextLine();
+        departureTime = scan.next();
+        
+          for (int i = 0; i < setup.destination.length; i++) {
+            System.out.println("" + setup.destination[i]);
+        }
 
         System.out.println("Type in Arrival time: (Ex. 17:20)");
-        arrivalTime = scan.nextLine();
+        arrivalTime = scan.next();
 
         System.out.println("Type in the day of Flight: (Ex. 21/12/2019)");
-        dateOfFlight = scan.nextLine();
+        dateOfFlight = scan.next();
 
         int idFlight = flights.size();
         System.out.println("idFlight" + idFlight);
-       
+
         System.out.println("idFlight" + idFlight);
 
         Flight a = flights.get(idFlight - 1);
