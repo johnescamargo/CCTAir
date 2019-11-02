@@ -9,7 +9,7 @@ public class Airplane {
     private int model;
     private int capacity;
     private ArrayList<Integer> idPilot = new ArrayList<>();
-    boolean available;
+    boolean available = true;
 
     //Contructor
     public Airplane(int idAircraft, String make, int model, int capacity) {
@@ -17,7 +17,6 @@ public class Airplane {
         this.make = make;
         this.model = model;
         this.capacity = capacity;
-        this.available = false;
     }
 
     public Airplane() {
@@ -74,7 +73,7 @@ public class Airplane {
     }
 
     public String isAvailableToString(boolean available) {
-        if (available == false) {
+        if (available == true) {
             return "Available";
         } else {
             return "Not Available";
@@ -110,7 +109,7 @@ public class Airplane {
                 + "     Aircraft: " + make + "-" + model + "\n"
                 + "     Capacity: " + capacity + " Seats" + "\n"
                 + "     Pilots ID: " + idPilot + "\n"
-                + " Availability: "+ isAvailableToString(available) + "\n"
+                + " Availability: " + isAvailableToString(available) + "\n"
                 + "_________________________________________________________"
                 + "\n";
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CCTAir {
 
     public static void main(String[] args) {
-        Pilot[] pilots = new Pilot[25];
+        Pilot[] pilots = new Pilot[30];
         Airplane[] airplanes = new Airplane[15];
         ArrayList<Flight> flights = new ArrayList<>();
 
@@ -19,10 +19,6 @@ public class CCTAir {
         flights = setup.setFlights(flights, airplanes, pilots);
         a.setTime(flights);
         // ---------------------------------------------------------------------
-
-//        for (int i = 0; i < flights.size(); i++) {
-//            System.out.println(flights.get(i));
-//        }
 
         menu.mainMenu(pilots, airplanes, flights);
 

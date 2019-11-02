@@ -9,7 +9,7 @@ public class Pilot {
 
     //Contructor
     public Pilot() {
-        this.available = false;
+        this.available = true;
     }
     
      public Pilot(Pilot pilot) {
@@ -50,7 +50,7 @@ public class Pilot {
     }
 
     public String isAvailableToString(boolean available) {
-        if (available == false) {
+        if (available == true) {
             return "Available";
         } else {
             return "Not Available";

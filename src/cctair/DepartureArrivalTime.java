@@ -30,7 +30,7 @@ public class DepartureArrivalTime {
 
             if ("Dublin".equals(flights.get(i).getOrigin()) && "Bucharest".equals(flights.get(i).getDestination())
                     || "Cork".equals(flights.get(i).getOrigin()) && "Bucharest".equals(flights.get(i).getDestination())) {
-                flight.schedule("07:00", "14:45");
+                flight.schedule("07:00", "10:45");
             }
 
             if ("Dublin".equals(flights.get(i).getOrigin()) && "Liverpool".equals(flights.get(i).getDestination())
@@ -55,12 +55,12 @@ public class DepartureArrivalTime {
 
             if ("Dublin".equals(flights.get(i).getOrigin()) && "Lisbon".equals(flights.get(i).getDestination())
                     || "Cork".equals(flights.get(i).getOrigin()) && "Lisbon".equals(flights.get(i).getDestination())) {
-                flight.schedule("09:00", "11:05");
+                flight.schedule("18:00", "20:25");
             }
 
             if ("Dublin".equals(flights.get(i).getOrigin()) && "London".equals(flights.get(i).getDestination())
                     || "Cork".equals(flights.get(i).getOrigin()) && "London".equals(flights.get(i).getDestination())) {
-                flight.schedule("09:00", "11:05");
+                flight.schedule("08:30", "09:30");
             }
 
             if ("Dublin".equals(flights.get(i).getOrigin()) && "Glasgow".equals(flights.get(i).getDestination())

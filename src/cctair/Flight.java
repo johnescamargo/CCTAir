@@ -21,9 +21,9 @@ public class Flight {
         this.destination = destination;
         this.dateOfFlight = dateOfFlight;
         this.airplane = airplane;
-        this.airplane.available = true;
+        this.airplane.available = false;
         this.pilot = pilot;
-        this.pilot.available = true;
+        this.pilot.available = false;
         this.id = id;
     }
 
@@ -106,16 +106,12 @@ public class Flight {
 
     //Method one
     public void schedule(String arrivalTime) {
-
         this.arrivalTime = arrivalTime;
-
     }
 
     //Method two
     public void schedule(String departureTime, String arrivalTime) {
-        
-        
-        
+  
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
 
@@ -123,7 +119,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight Information:" + "\n"
+        return "Flight Information:" +" ID: " + id +"\n"
                 + "     Date: " + dateOfFlight + "\n"
                 + "     From: " + origin + " to " + destination + "\n"
                 + "     Flight time: " + departureTime + " to " + arrivalTime + "\n"
