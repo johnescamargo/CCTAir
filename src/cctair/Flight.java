@@ -2,6 +2,11 @@ package cctair;
 
 import java.util.Date;
 
+/**
+ *
+ * @author Johnes
+ * @author Mihaela
+ */
 public class Flight {
 
     private int id;
@@ -111,7 +116,7 @@ public class Flight {
 
     //Method two
     public void schedule(String departureTime, String arrivalTime) {
-  
+
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
 
@@ -119,7 +124,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight Information:" +" ID: " + id +"\n"
+        return "Flight Information:" + " ID: " + id + "\n"
                 + "     Date: " + dateOfFlight + "\n"
                 + "     From: " + origin + " to " + destination + "\n"
                 + "     Flight time: " + departureTime + " to " + arrivalTime + "\n"

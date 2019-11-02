@@ -322,9 +322,7 @@ public class Menu {
         airplane1.clear();
         for (Airplane airplane : airplanes) {
             if (airplane.isAvailable() == true) {
-                //System.out.println(airplanes[i]);
                 airplane1.add(airplane);
-                //  System.out.println(" Method show  :" + airplane1.get(i));
             }
         }
         return airplane1;
@@ -357,7 +355,6 @@ public class Menu {
             for (int j = 0; j < pilot.length; j++) {
                 if (pil[i] == pilot[j].getIdPilot() && pilot[j].isAvailable() == true) {
                     ap.add(pilot[j]);
-                    // System.out.println(pilot[j]);
                 }
             }
         }

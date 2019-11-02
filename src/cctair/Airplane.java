@@ -2,6 +2,11 @@ package cctair;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Johnes
+ * @author Mihaela
+ */
 public class Airplane {
 
     private int idAircraft;

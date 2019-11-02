@@ -3,6 +3,11 @@ package cctair;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ *
+ * @author Johnes
+ * @author Mihaela
+ */
 public class SetUp {
 
     //Global variables

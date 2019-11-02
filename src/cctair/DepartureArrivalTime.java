@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Johnes
+ * @author Mihaela
  */
 public class DepartureArrivalTime {
 

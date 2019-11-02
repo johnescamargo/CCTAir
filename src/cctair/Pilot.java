@@ -1,5 +1,10 @@
 package cctair;
 
+/**
+ *
+ * @author Johnes
+ * @author Mihaela
+ */
 public class Pilot {
 
     private int idPilot;
@@ -11,8 +16,8 @@ public class Pilot {
     public Pilot() {
         this.available = true;
     }
-    
-     public Pilot(Pilot pilot) {
+
+    public Pilot(Pilot pilot) {
     }
 
     //Getters
