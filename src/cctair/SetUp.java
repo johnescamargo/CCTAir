@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cctair;
 
 import java.util.ArrayList;
@@ -10,11 +15,12 @@ import java.util.Random;
  */
 public class SetUp {
 
-    //Global variables
+    //Global variables ( hardcode) ---------------------------------------------
     String[] names = {"John", "Mary", "Dave", "Joshua", "Rebecca", "Anne",
         "Mark", "Justin", "Paddy", "Apple", "Noel", "Amilcar", "Brendan"};
     String[] surnames = {" Jones", " Windows", " Netbeans", " Oracle",
-        " Ubuntu", " Drinkwater", " Python", " Linux", " Case", " Pie", " Sony", " Asus", " MacOs"};
+        " Ubuntu", " Drinkwater", " Python", " Linux", " Case", " Pie", 
+        " Sony", " Asus", " MacOs"};
 
     String[] makes = {"Embraer", "Boing", "Airbus"};
     int[] model = {707, 860, 870, 890, 830, 353, 160, 855,
@@ -32,10 +38,13 @@ public class SetUp {
         "23:30", "00:30"};
     String[] date = {"21/11/2019", "20/11/2019", "23/11/2019", "22/11/2019"};
 
-    int id = 1;
+    int id = 1;// variable that implements flight's ID
 
     Random rGen = new Random();
-
+//------------------------------------------------------------------------------
+    
+    
+    //Method that sets variables into Aircraft Class and returns an array of aircrafts
     public Airplane[] setAircrafts(Airplane[] airplane, Pilot[] pilot) {
 
         for (int i = 0; i < airplane.length; i++) {
@@ -50,6 +59,7 @@ public class SetUp {
         return airplane;
     }
 
+    //Method that sets variables into Pilot Class and returns an array of Pilot
     public Pilot[] setPilots(Pilot[] pilot) {
 
         for (int i = 0; i < pilot.length; i++) {
@@ -62,6 +72,7 @@ public class SetUp {
         return pilot;
     }
 
+    //Method that creates and set flights and also return an ArrayList of Flights
     public ArrayList<Flight> setFlights(ArrayList<Flight> flights, Airplane[] airplane, Pilot[] pilot) {
         ArrayList<Pilot> pilots = new ArrayList<>();
         String origins = "";
@@ -77,7 +88,7 @@ public class SetUp {
             dates = date[rGen.nextInt(date.length)];
             air = airplane[rGen.nextInt(airplane.length)];
 
-            for (int j = 0; j < air.getIdPilot().size(); j++) {// Save pilots
+            for (int j = 0; j < air.getIdPilot().size(); j++) {
 
                 for (int x = 0; x < pilot.length; x++) {
                     if (air.getIdPilot().get(j) == pilot[x].getIdPilot()) {
@@ -88,7 +99,7 @@ public class SetUp {
 
             pil = pilots.get(rGen.nextInt(pilots.size()));
 
-            if (origins != destinations && pil.isAvailable() == true) {
+            if (!origins.equals(destinations) && pil.isAvailable() == true) {
                 flights.add(new Flight(id, origins, destinations, dates, air, pil));
                 id++;
             } else {

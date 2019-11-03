@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cctair;
 
 import java.util.Date;
@@ -9,6 +14,7 @@ import java.util.Date;
  */
 public class Flight {
 
+    //Variables
     private int id;
     private String origin;
     private String destination;
@@ -32,6 +38,7 @@ public class Flight {
         this.id = id;
     }
 
+    //Constructor
     public Flight() {
     }
 
@@ -109,17 +116,15 @@ public class Flight {
         return dateOfFlight;
     }
 
-    //Method one
+    //Method that sets arrival time
     public void schedule(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    //Method two
+    //Method that sets arrival time and departure time
     public void schedule(String departureTime, String arrivalTime) {
-
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
-
     }
 
     @Override

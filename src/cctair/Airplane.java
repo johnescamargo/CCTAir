@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cctair;
 
 import java.util.ArrayList;
@@ -9,10 +14,12 @@ import java.util.ArrayList;
  */
 public class Airplane {
 
+    //Variables
     private int idAircraft;
     private String make;
     private int model;
     private int capacity;
+    //ArrayList of Pilot's id who are allowed to fly the airplane
     private ArrayList<Integer> idPilot = new ArrayList<>();
     boolean available = true;
 
@@ -24,10 +31,11 @@ public class Airplane {
         this.capacity = capacity;
     }
 
+    //Contructor
     public Airplane() {
     }
 
-    //Getters
+    //Getters ------------------------------------------------------------------
     public String getMake() {
         return make;
     }
@@ -51,8 +59,9 @@ public class Airplane {
     public boolean isAvailable() {
         return available;
     }
+    // end of getters ----------------------------------------------------------
 
-    //Setters
+    //Setters ------------------------------------------------------------------
     public void setMake(String make) {
         this.make = make;
     }
@@ -76,7 +85,9 @@ public class Airplane {
     public void setAvailable(boolean available) {
         this.available = available;
     }
-
+    // end of setters ----------------------------------------------------------
+   
+    // Method that returns a String according to variable "available"
     public String isAvailableToString(boolean available) {
         if (available == true) {
             return "Available";
@@ -86,6 +97,8 @@ public class Airplane {
 
     }
 
+    // Method that assigns and arrayList of Pilot's ID according to the capacity
+    // of the airplane and the rank of the pilots
     public void assignPilot(Pilot[] pilot) {
 
         for (Pilot pilot1 : pilot) {
@@ -107,7 +120,7 @@ public class Airplane {
 
     }
 
-    @Override
+    @Override // Method that returns values and Strings in a String format
     public String toString() {
         return "Airplane Information: " + "\n"
                 + "     ID Aircraft: " + idAircraft + "\n"

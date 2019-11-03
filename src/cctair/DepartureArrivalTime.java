@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cctair;
 
 import java.util.ArrayList;
@@ -9,11 +14,7 @@ import java.util.ArrayList;
  */
 public class DepartureArrivalTime {
 
-    String[] origin = {"Dublin", "Cork"};
-    String[] destination = {"Dublin", "Porto", "Paris", "Bucharest",
-        "Liverpool", "Manchester", "Rome", "Cork",
-        "Lisbon", "London", "Glasgow"};
-
+    //Method that sets time according to origin and destinations
     public void setTime(ArrayList<Flight> flights) {
         Flight flight = new Flight();
         for (int i = 0; i < flights.size(); i++) {

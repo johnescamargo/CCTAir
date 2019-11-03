@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cctair;
 
 /**
@@ -7,6 +12,7 @@ package cctair;
  */
 public class Pilot {
 
+    //Variables
     private int idPilot;
     private String name;
     private int rank;
@@ -17,6 +23,7 @@ public class Pilot {
         this.available = true;
     }
 
+    //Constructor 
     public Pilot(Pilot pilot) {
     }
 
@@ -54,6 +61,7 @@ public class Pilot {
         this.available = available;
     }
 
+    //Method that display if Pilot is available
     public String isAvailableToString(boolean available) {
         if (available == true) {
             return "Available";

@@ -16,15 +16,16 @@ import java.util.Scanner;
  */
 public class Menu {
 
+    // Global Variables
     Scanner scan = new Scanner(System.in);
     SetUp setup = new SetUp();
     DepartureArrivalTime dat = new DepartureArrivalTime();
-
     String origin1;
     String destination1;
     int id;
     int j;
 
+    // Method that interacts with users of the system
     public void mainMenu(Pilot[] pilots, Airplane[] airplanes, ArrayList<Flight> flights) {
 
         String choice;
@@ -43,6 +44,7 @@ public class Menu {
             choice = scan.next();
 
             switch (choice) {
+                //-------------------------------------------------------------------                        
                 case "1": //1: Show a particular flight
                     System.out.println("Choose an flight between 1 and " + flights.size());
                     try {
@@ -60,11 +62,12 @@ public class Menu {
                         break;
                     }
                     break;
-
+                //-------------------------------------------------------------------
                 case "2":  //2: Show all the available aircraft
                     showAvailableAirplanes(airplanes);// Call method 
                     break;
 
+                //-------------------------------------------------------------------
                 case "3"://3: Show a particular aircraft
                     System.out.println("Choose an Airplane between 1 and " + airplanes.length);
                     try {
@@ -83,13 +86,17 @@ public class Menu {
                     }
                     break;
 
+                //-------------------------------------------------------------------        
                 case "4": //4: Show all Pilots
                     for (Pilot airplane : pilots) {
                         System.out.println(airplane);
                     }
                     break;
+
+                //-------------------------------------------------------------------
                 case "5":  // 5: Show a particular Pilot
-                    System.out.println("Choose an Pilot between 1 and " + pilots.length);
+                    System.out.println("Choose an Pilot between 1 and "
+                            + pilots.length);
                     try {
                         id = scan.nextInt() - 1;
                         int pil = pilots.length;
@@ -97,44 +104,55 @@ public class Menu {
                             System.out.println(pilots[id]);
                             break;
                         } else {
-                            System.out.println("You chose and invalid option. Please, try again.\n");
+                            System.out.println("You chose and invalid option. "
+                                    + "Please, try again.\n");
                         }
 
                     } catch (InputMismatchException e) {
-                        System.out.println("You chose and invalid option. Please, try again.\n");
+                        System.out.println("You chose and invalid option. "
+                                + "Please, try again.\n");
                         break;
                     }
                     break;
 
+                //-------------------------------------------------------------------
                 case "6"://Create a Flight
                     if (flights.size() < 15) {
                         createFlight(flights, airplanes, pilots);
                         break;
                     } else {
-                        System.out.println("You are not allowed to create any more flight");
+                        System.out.println("You are not allowed to create any "
+                                + "more flight");
                         break;
                     }
 
+                //-------------------------------------------------------------------         
                 case "7"://Display all flights
                     for (Flight flight1 : flights) {
                         System.out.println(flight1);
                     }
                     break;
+
+                //-------------------------------------------------------------------        
                 case "8"://Exit
                     System.out.println("Exiting...");
                     System.exit(0);
 
+                //-------------------------------------------------------------------         
                 default:
-                    System.out.println("You chose and invalid option. Please, try again.\n");
+                    System.out.println("You chose and invalid option. Please, "
+                            + "try again.\n");
                     break;
             }
-            // end of switch
+            // end of switch ----------------------------------------------------
 
         } while (!"8".equals(choice));
-        // end of do-while
+        // end of do-while -----------------------------------------------------
 
-    }
+    } // end of method ----------------------------------------------------------
 
+    
+    //Method that create new flights
     public void createFlight(ArrayList<Flight> flights, Airplane[] airplanes, Pilot[] pilot) {
 
         Airplane airplane = new Airplane();
@@ -147,7 +165,7 @@ public class Menu {
         int idArrayPilot;
         String x = "0";
 
-        //Choose available airplanes
+        //Choose available airplanes 
         do {
 
             ArrayList<Airplane> airplaneMenu = new ArrayList<>();
@@ -197,11 +215,11 @@ public class Menu {
             for (int i = 0; i < pilotMenu.size(); i++) {
                 System.out.println(pilotMenu.get(i));
             }
-            // String idPilot1 = scan.next();
 
+            //Choose Pilot from list of pilots
             try {
 
-                System.out.println("Choose a pilot from the List typeing in its ID");
+                System.out.println("Choose a pilot from the List. Type in its ID");
                 String idPilot1 = scan.next();
 
                 for (int i = 0; i < pilotMenu.size(); i++) {
@@ -223,6 +241,7 @@ public class Menu {
 
         } while (!"1".equals(x));
 
+        //Choose an Origin
         do {
 
             System.out.println("Type 1 for " + setup.origin[0]);
@@ -243,6 +262,7 @@ public class Menu {
 
         } while (!"1".equals(origin1));
 
+        // Choose a Destination
         do {
 
             for (int i = 0; i < setup.destination.length; i++) {
@@ -300,23 +320,22 @@ public class Menu {
 
         } while (!"1".equals(destination1));
 
+        
         System.out.println("Type in the day of Flight: (Ex. 21/12/2019)");
         dateOfFlight = scan.next();
 
+        //Insert an ID into a Flight
         int idFlight = flights.size();
-        System.out.println("idFlight" + idFlight);
-
-        System.out.println("idFlight" + idFlight);
-
         Flight a = flights.get(idFlight - 1);
-        System.out.println("flight" + a);
         int b = (int) a.getId() + 1;
 
+        //Set new flight
         flights.add(new Flight(b, origin, destination, dateOfFlight, airplane, pilot1));
-        dat.setTime(flights);
+        //Set time of the flight
+        dat.setTime(flights); 
     }
 
-    //Method to show just available airplanes
+    //Method that gets just available airplanes
     public ArrayList<Airplane> getAvailableAirplanes(Airplane[] airplanes) {
         ArrayList<Airplane> airplane1 = new ArrayList<>();
         airplane1.clear();
@@ -329,21 +348,19 @@ public class Menu {
 
     }
 
-    //Method to show just available airplanes
+    //Method that displays just available airplanes
     public void showAvailableAirplanes(Airplane[] airplanes) {
         for (int i = 0; i < airplanes.length; i++) {
             if (airplanes[i].isAvailable() == true) {
                 System.out.println(airplanes[i]);
             }
-
         }
-
     }
 
-    //Method to print and return an array of availble pilots assigned to the airplane 
+    //Method that displays and return an array of availble pilots assigned to a airplane 
     public ArrayList<Pilot> getAvailablePilotsforAnAirplane(Airplane airplane, Pilot[] pilot) {
 
-        int[] pil = new int[30]; // array of Pilots
+        int[] pil = new int[30]; // array of Pilot's ID
         ArrayList<Pilot> ap = new ArrayList<>();
 
         //Save id of pilots assigned to the airplane
@@ -351,6 +368,7 @@ public class Menu {
             pil[i] = airplane.getIdPilot().get(i);
         }
 
+        //Add pilot to ArrayList
         for (int i = 0; i < pil.length; i++) {
             for (int j = 0; j < pilot.length; j++) {
                 if (pil[i] == pilot[j].getIdPilot() && pilot[j].isAvailable() == true) {
@@ -359,7 +377,5 @@ public class Menu {
             }
         }
         return ap;
-
     }
-
 }
