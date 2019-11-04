@@ -32,10 +32,10 @@ public class SetUp {
     String[] destination = {"Dublin", "Cork", "Paris", "Bucharest",
         "Liverpool", "Manchester", "Rome", "Porto",
         "Lisbon", "London", "Glasgow"};
-    String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30",
-        "16:30"};
-    String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30",
-        "23:30", "00:30"};
+//    String[] departure = {"10:30", "11:30", "12:30", "13:30", "14:30", "15:30",
+//        "16:30"};
+//    String[] arrival = {"17:30", "18:30", "19:30", "20:30", "21:30", "22:30",
+//        "23:30", "00:30"};
     String[] date = {"21/11/2019", "20/11/2019", "23/11/2019", "22/11/2019"};
 
     int id = 1;// variable that implements flight's ID
