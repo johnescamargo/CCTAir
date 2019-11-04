@@ -25,7 +25,12 @@ public class Menu {
     int id;
     int j;
 
-    // Method that interacts with users of the system
+    /**
+     * Method that interacts with users of the system
+     * @param pilots - receives an array of Class Pilot
+     * @param airplanes - receives an array of Class Airplane
+     * @param flights - receives an ArrayList of Class Flight
+     */
     public void mainMenu(Pilot[] pilots, Airplane[] airplanes, ArrayList<Flight> flights) {
 
         String choice;
@@ -151,8 +156,12 @@ public class Menu {
 
     } // end of method ----------------------------------------------------------
 
-    
-    //Method that create new flights
+    /**
+     * Method that create new flights
+     * @param pilot - receives an array of Class Pilot
+     * @param airplanes - receives an array of Class Airplane
+     * @param flights - receives an ArrayList of Class Flight
+     */
     public void createFlight(ArrayList<Flight> flights, Airplane[] airplanes, Pilot[] pilot) {
 
         Airplane airplane = new Airplane();
@@ -186,7 +195,7 @@ public class Menu {
                     String am = Integer.toString(airplaneMenu.get(i).getIdAircraft());
                     if (idAirplane.equals(am)) {
                         airplane = airplaneMenu.get(i);
-                        System.out.println("Aircraft found");
+                        System.out.println("Aircraft found" + "\n");
                         x = "1";
                         break;
                     } else {
@@ -320,7 +329,6 @@ public class Menu {
 
         } while (!"1".equals(destination1));
 
-        
         System.out.println("Type in the day of Flight: (Ex. 21/12/2019)");
         dateOfFlight = scan.next();
 
@@ -332,10 +340,14 @@ public class Menu {
         //Set new flight
         flights.add(new Flight(b, origin, destination, dateOfFlight, airplane, pilot1));
         //Set time of the flight
-        dat.setTime(flights); 
+        dat.setTime(flights);
     }
 
-    //Method that gets just available airplanes
+    /**
+     * Method that gets just available airplanes
+     * @param airplanes - receives an array of Class Airplane
+     * @return Airplane - return an ArrayList of Class Airplane
+     */
     public ArrayList<Airplane> getAvailableAirplanes(Airplane[] airplanes) {
         ArrayList<Airplane> airplane1 = new ArrayList<>();
         airplane1.clear();
@@ -348,7 +360,10 @@ public class Menu {
 
     }
 
-    //Method that displays just available airplanes
+    /**
+     * Method that displays just available airplanes
+     * @param airplanes - receives an array of Class Airplane
+     */
     public void showAvailableAirplanes(Airplane[] airplanes) {
         for (int i = 0; i < airplanes.length; i++) {
             if (airplanes[i].isAvailable() == true) {
@@ -357,7 +372,15 @@ public class Menu {
         }
     }
 
-    //Method that displays and return an array of availble pilots assigned to a airplane 
+  
+     /**
+     * Method that displays and return an array of available pilots assigned to
+     * a airplane
+     *
+     * @param airplane - receives an array of Class Airplane
+     * @param pilot - receives an array of Class Airplane
+     * @return Pilot - returns an ArrayList of Class Pilot
+     */
     public ArrayList<Pilot> getAvailablePilotsforAnAirplane(Airplane airplane, Pilot[] pilot) {
 
         int[] pil = new int[30]; // array of Pilot's ID

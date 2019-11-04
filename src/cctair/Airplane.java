@@ -23,7 +23,14 @@ public class Airplane {
     private ArrayList<Integer> idPilot = new ArrayList<>();
     boolean available = true;
 
-    //Contructor
+    /**
+     * Constructor
+     *
+     * @param make - receives a String
+     * @param model - receives an integer
+     * @param capacity - receives an integer
+     * @param idAircraft - receives integer
+     */
     public Airplane(int idAircraft, String make, int model, int capacity) {
         this.idAircraft = idAircraft;
         this.make = make;
@@ -31,7 +38,9 @@ public class Airplane {
         this.capacity = capacity;
     }
 
-    //Contructor
+    /**
+     * Simple Constructor
+     */
     public Airplane() {
     }
 
@@ -86,7 +95,7 @@ public class Airplane {
         this.available = available;
     }
     // end of setters ----------------------------------------------------------
-   
+
     // Method that returns a String according to variable "available"
     public String isAvailableToString(boolean available) {
         if (available == true) {
@@ -97,8 +106,12 @@ public class Airplane {
 
     }
 
-    // Method that assigns and arrayList of Pilot's ID according to the capacity
-    // of the airplane and the rank of the pilots
+    /**
+     * Method that assigns an arrayList of Pilot's ID according to the airplane
+     * and the rank of the pilots
+     *
+     * @param pilot - receives an array of Class Pilot
+     */
     public void assignPilot(Pilot[] pilot) {
 
         for (Pilot pilot1 : pilot) {
@@ -120,7 +133,10 @@ public class Airplane {
 
     }
 
-    @Override // Method that returns values and Strings in a String format
+    /**
+     * Method that returns values and Strings in a String format
+     */
+    @Override
     public String toString() {
         return "Airplane Information: " + "\n"
                 + "     ID Aircraft: " + idAircraft + "\n"

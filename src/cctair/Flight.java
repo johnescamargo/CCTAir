@@ -25,7 +25,16 @@ public class Flight {
     Airplane airplane = new Airplane();
     Pilot pilot = new Pilot();
 
-    //Constructor
+    /**
+     * Constructor
+     *
+     * @param id - receives integer id
+     * @param origin - receives String origin
+     * @param destination - receives String destination
+     * @param dateOfFlight - receives String of date
+     * @param airplane - receives an instance of Airplane
+     * @param pilot - receives an instance of Pilot
+     */
     public Flight(int id, String origin, String destination, String dateOfFlight, Airplane airplane, Pilot pilot) {
         this.dateOfCreation = new Date();
         this.origin = origin;
@@ -38,7 +47,9 @@ public class Flight {
         this.id = id;
     }
 
-    //Constructor
+    /**
+     * Constructor
+     */
     public Flight() {
     }
 
@@ -116,12 +127,21 @@ public class Flight {
         return dateOfFlight;
     }
 
-    //Method that sets arrival time
+    /**
+     * Method that sets arrival time
+     *
+     * @param arrivalTime
+     */
     public void schedule(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    //Method that sets arrival time and departure time
+    /**
+     * Method that sets arrival time and departure time
+     *
+     * @param departureTime
+     * @param arrivalTime
+     */
     public void schedule(String departureTime, String arrivalTime) {
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;

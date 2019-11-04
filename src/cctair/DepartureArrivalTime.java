@@ -14,7 +14,11 @@ import java.util.ArrayList;
  */
 public class DepartureArrivalTime {
 
-    //Method that sets time according to origin and destinations
+    
+     /**
+     * Method that sets time according to origin and destinations
+     * @param flights - receives an ArrayList of flights
+     */
     public void setTime(ArrayList<Flight> flights) {
         Flight flight = new Flight();
         for (int i = 0; i < flights.size(); i++) {

@@ -19,7 +19,7 @@ public class SetUp {
     String[] names = {"John", "Mary", "Dave", "Joshua", "Rebecca", "Anne",
         "Mark", "Justin", "Paddy", "Apple", "Noel", "Amilcar", "Brendan"};
     String[] surnames = {" Jones", " Windows", " Netbeans", " Oracle",
-        " Ubuntu", " Drinkwater", " Python", " Linux", " Case", " Pie", 
+        " Ubuntu", " Drinkwater", " Python", " Linux", " Case", " Pie",
         " Sony", " Asus", " MacOs"};
 
     String[] makes = {"Embraer", "Boing", "Airbus"};
@@ -42,9 +42,15 @@ public class SetUp {
 
     Random rGen = new Random();
 //------------------------------------------------------------------------------
-    
-    
-    //Method that sets variables into Aircraft Class and returns an array of aircrafts
+
+    /**
+     * Method that sets variables into Aircraft Class and returns an array of
+     * aircrafts
+     *
+     * @param airplane - receives an array of Airplane
+     * @param pilot - receives an array of Pilot
+     * @return an array of Airplane
+     */
     public Airplane[] setAircrafts(Airplane[] airplane, Pilot[] pilot) {
 
         for (int i = 0; i < airplane.length; i++) {
@@ -59,7 +65,12 @@ public class SetUp {
         return airplane;
     }
 
-    //Method that sets variables into Pilot Class and returns an array of Pilot
+    /**
+     * Method that sets variables into Pilot Class and returns an array of Pilot
+     *
+     * @param pilot - receives an array of Pilot
+     * @return an array of Pilot
+     */
     public Pilot[] setPilots(Pilot[] pilot) {
 
         for (int i = 0; i < pilot.length; i++) {
@@ -72,7 +83,15 @@ public class SetUp {
         return pilot;
     }
 
-    //Method that creates and set flights and also return an ArrayList of Flights
+    /**
+     * Method that creates and set flights and also return an ArrayList of
+     * Flights
+     *
+     * @param flights - receives an ArrayList of Flight
+     * @param airplane - receives an array of Airplane
+     * @param pilot - receives an array of Pilot
+     * @return ArrayList of flights
+     */
     public ArrayList<Flight> setFlights(ArrayList<Flight> flights, Airplane[] airplane, Pilot[] pilot) {
         ArrayList<Pilot> pilots = new ArrayList<>();
         String origins = "";

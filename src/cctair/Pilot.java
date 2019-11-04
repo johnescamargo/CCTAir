@@ -18,12 +18,19 @@ public class Pilot {
     private int rank;
     boolean available;
 
-    //Contructor
+    /**
+     * Constructor that sets 'true' automatically into variable available
+     *
+     */
     public Pilot() {
         this.available = true;
     }
 
-    //Constructor 
+    /**
+     * Constructor
+     *
+     * @param pilot
+     */
     public Pilot(Pilot pilot) {
     }
 
@@ -61,7 +68,12 @@ public class Pilot {
         this.available = available;
     }
 
-    //Method that display if Pilot is available
+    /**
+     * Method that displays a String whether Pilot is available or not available
+     *
+     * @param available
+     * @return String
+     */
     public String isAvailableToString(boolean available) {
         if (available == true) {
             return "Available";
