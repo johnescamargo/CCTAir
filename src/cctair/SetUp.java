@@ -47,22 +47,22 @@ public class SetUp {
      * Method that sets variables into Aircraft Class and returns an array of
      * aircrafts
      *
-     * @param airplane - receives an array of Airplane
+     * @param airPlane - receives an array of Airplane
      * @param pilot - receives an array of Pilot
      * @return an array of Airplane
      */
-    public Airplane[] setAircrafts(Airplane[] airplane, Pilot[] pilot) {
+    public AirPlane[] setAircrafts(AirPlane[] airPlane, Pilot[] pilot) {
 
-        for (int i = 0; i < airplane.length; i++) {
-            airplane[i] = new Airplane();
+        for (int i = 0; i < airPlane.length; i++) {
+            airPlane[i] = new AirPlane();
 
-            airplane[i].setIdAircraft(i + 201);
-            airplane[i].setMake(makes[rGen.nextInt(makes.length)]);
-            airplane[i].setModel(model[rGen.nextInt(model.length)]);
-            airplane[i].setCapacity(capacity[rGen.nextInt(capacity.length)]);
-            airplane[i].assignPilot(pilot);
+            airPlane[i].setIdAircraft(i + 201);
+            airPlane[i].setMake(makes[rGen.nextInt(makes.length)]);
+            airPlane[i].setModel(model[rGen.nextInt(model.length)]);
+            airPlane[i].setCapacity(capacity[rGen.nextInt(capacity.length)]);
+            airPlane[i].assignPilot(pilot);
         }
-        return airplane;
+        return airPlane;
     }
 
     /**
@@ -88,24 +88,24 @@ public class SetUp {
      * Flights
      *
      * @param flights - receives an ArrayList of Flight
-     * @param airplane - receives an array of Airplane
+     * @param airPlane - receives an array of Airplane
      * @param pilot - receives an array of Pilot
      * @return ArrayList of flights
      */
-    public ArrayList<Flight> setFlights(ArrayList<Flight> flights, Airplane[] airplane, Pilot[] pilot) {
+    public ArrayList<Flight> setFlights(ArrayList<Flight> flights, AirPlane[] airPlane, Pilot[] pilot) {
         ArrayList<Pilot> pilots = new ArrayList<>();
         String origins = "";
         String destinations = "";
         String dates = "";
         Pilot pil = new Pilot();
-        Airplane air = new Airplane();
+        AirPlane air = new AirPlane();
 
         for (int i = 0; i < 10; i++) {
             pilots.clear();
             origins = origin[rGen.nextInt(origin.length)];
             destinations = destination[rGen.nextInt(destination.length)];
             dates = date[rGen.nextInt(date.length)];
-            air = airplane[rGen.nextInt(airplane.length)];
+            air = airPlane[rGen.nextInt(airPlane.length)];
 
             for (int j = 0; j < air.getIdPilot().size(); j++) {
 

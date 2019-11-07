@@ -27,11 +27,12 @@ public class Menu {
 
     /**
      * Method that interacts with users of the system
+     *
      * @param pilots - receives an array of Class Pilot
      * @param airplanes - receives an array of Class Airplane
      * @param flights - receives an ArrayList of Class Flight
      */
-    public void mainMenu(Pilot[] pilots, Airplane[] airplanes, ArrayList<Flight> flights) {
+    public void mainMenu(Pilot[] pilots, AirPlane[] airplanes, ArrayList<Flight> flights) {
 
         String choice;
         do {
@@ -158,43 +159,44 @@ public class Menu {
 
     /**
      * Method that create new flights
+     *
      * @param pilot - receives an array of Class Pilot
      * @param airplanes - receives an array of Class Airplane
      * @param flights - receives an ArrayList of Class Flight
      */
-    public void createFlight(ArrayList<Flight> flights, Airplane[] airplanes, Pilot[] pilot) {
+    public void createFlight(ArrayList<Flight> flights, AirPlane[] airplanes, Pilot[] pilot) {
 
-        Airplane airplane = new Airplane();
+        AirPlane airPlane = new AirPlane();
         Pilot pilot1 = new Pilot();
         String origin = "";
         String destination = "";
         String dateOfFlight;
         int idPilot;
-        String idAirplane;
+        String idAirPlane;
         int idArrayPilot;
         String x = "0";
 
         //Choose available airplanes 
         do {
 
-            ArrayList<Airplane> airplaneMenu = new ArrayList<>();
-            airplaneMenu.clear();
+            ArrayList<AirPlane> airPlaneMenu = new ArrayList<>();
+            airPlaneMenu.clear();
 
-            airplaneMenu = getAvailableAirplanes(airplanes);
-            for (int i = 0; i < airplaneMenu.size(); i++) {
-                System.out.println(airplaneMenu.get(i));
+            airPlaneMenu = getAvailableAirPlanes(airplanes);
+            for (int i = 0; i < airPlaneMenu.size(); i++) {
+                System.out.println(airPlaneMenu.get(i));
 
             }
 
             try {
 
-                System.out.println("Choose an airplane from the List typeing in its ID");
-                idAirplane = scan.next();
+                System.out.println("Choose an aircraft from the List. Type in its ID");
+                idAirPlane = scan.next();
 
-                for (int i = 0; i < airplaneMenu.size(); i++) {
-                    String am = Integer.toString(airplaneMenu.get(i).getIdAircraft());
-                    if (idAirplane.equals(am)) {
-                        airplane = airplaneMenu.get(i);
+                for (int i = 0; i < airPlaneMenu.size(); i++) {
+                    String am = Integer.toString(airPlaneMenu.get(i).getIdAircraft());
+                    if (idAirPlane.equals(am)) {
+                        airPlane = airPlaneMenu.get(i);
                         System.out.println("Aircraft found" + "\n");
                         x = "1";
                         break;
@@ -210,7 +212,7 @@ public class Menu {
 
         } while (!"1".equals(x));
 
-        //Choose available pilots assigned to an airplane 
+        //Choose available pilots assigned to an air-plane 
         do {
 
             x = "w";
@@ -220,7 +222,7 @@ public class Menu {
             System.out.println("These are the available Pilots assigned to this specific Aircraft at the moment");
             System.out.println("Choose one Pilot from the list typeing in the ID");
 
-            pilotMenu = getAvailablePilotsforAnAirplane(airplane, pilot);
+            pilotMenu = getAvailablePilotsforAnAirplane(airPlane, pilot);
             for (int i = 0; i < pilotMenu.size(); i++) {
                 System.out.println(pilotMenu.get(i));
             }
@@ -338,20 +340,21 @@ public class Menu {
         int b = (int) a.getId() + 1;
 
         //Set new flight
-        flights.add(new Flight(b, origin, destination, dateOfFlight, airplane, pilot1));
+        flights.add(new Flight(b, origin, destination, dateOfFlight, airPlane, pilot1));
         //Set time of the flight
         dat.setTime(flights);
     }
 
     /**
      * Method that gets just available airplanes
+     *
      * @param airplanes - receives an array of Class Airplane
      * @return Airplane - return an ArrayList of Class Airplane
      */
-    public ArrayList<Airplane> getAvailableAirplanes(Airplane[] airplanes) {
-        ArrayList<Airplane> airplane1 = new ArrayList<>();
+    public ArrayList<AirPlane> getAvailableAirPlanes(AirPlane[] airplanes) {
+        ArrayList<AirPlane> airplane1 = new ArrayList<>();
         airplane1.clear();
-        for (Airplane airplane : airplanes) {
+        for (AirPlane airplane : airplanes) {
             if (airplane.isAvailable() == true) {
                 airplane1.add(airplane);
             }
@@ -362,9 +365,10 @@ public class Menu {
 
     /**
      * Method that displays just available airplanes
+     *
      * @param airplanes - receives an array of Class Airplane
      */
-    public void showAvailableAirplanes(Airplane[] airplanes) {
+    public void showAvailableAirplanes(AirPlane[] airplanes) {
         for (int i = 0; i < airplanes.length; i++) {
             if (airplanes[i].isAvailable() == true) {
                 System.out.println(airplanes[i]);
@@ -372,23 +376,22 @@ public class Menu {
         }
     }
 
-  
-     /**
+    /**
      * Method that displays and return an array of available pilots assigned to
      * a airplane
      *
-     * @param airplane - receives an array of Class Airplane
+     * @param airPlane - receives an array of Class Airplane
      * @param pilot - receives an array of Class Airplane
      * @return Pilot - returns an ArrayList of Class Pilot
      */
-    public ArrayList<Pilot> getAvailablePilotsforAnAirplane(Airplane airplane, Pilot[] pilot) {
+    public ArrayList<Pilot> getAvailablePilotsforAnAirplane(AirPlane airPlane, Pilot[] pilot) {
 
         int[] pil = new int[30]; // array of Pilot's ID
         ArrayList<Pilot> ap = new ArrayList<>();
 
         //Save id of pilots assigned to the airplane
-        for (int i = 0; i < airplane.getIdPilot().size(); i++) {
-            pil[i] = airplane.getIdPilot().get(i);
+        for (int i = 0; i < airPlane.getIdPilot().size(); i++) {
+            pil[i] = airPlane.getIdPilot().get(i);
         }
 
         //Add pilot to ArrayList

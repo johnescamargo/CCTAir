@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Johnes
  * @author Mihaela
  */
-public class Airplane {
+public class AirPlane {
 
     //Variables
     private int idAircraft;
@@ -31,7 +31,7 @@ public class Airplane {
      * @param capacity - receives an integer
      * @param idAircraft - receives integer
      */
-    public Airplane(int idAircraft, String make, int model, int capacity) {
+    public AirPlane(int idAircraft, String make, int model, int capacity) {
         this.idAircraft = idAircraft;
         this.make = make;
         this.model = model;
@@ -41,7 +41,7 @@ public class Airplane {
     /**
      * Simple Constructor
      */
-    public Airplane() {
+    public AirPlane() {
     }
 
     //Getters ------------------------------------------------------------------
@@ -135,10 +135,11 @@ public class Airplane {
 
     /**
      * Method that returns values and Strings in a String format
+     * @return String text plus some variables
      */
     @Override
     public String toString() {
-        return "Airplane Information: " + "\n"
+        return "Air-plane Information: " + "\n"
                 + "     ID Aircraft: " + idAircraft + "\n"
                 + "     Aircraft: " + make + "-" + model + "\n"
                 + "     Capacity: " + capacity + " Seats" + "\n"

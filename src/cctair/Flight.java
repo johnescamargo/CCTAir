@@ -22,7 +22,7 @@ public class Flight {
     private String arrivalTime;
     private String dateOfFlight;
     private Date dateOfCreation;
-    Airplane airplane = new Airplane();
+    AirPlane airPlane = new AirPlane();
     Pilot pilot = new Pilot();
 
     /**
@@ -32,16 +32,16 @@ public class Flight {
      * @param origin - receives String origin
      * @param destination - receives String destination
      * @param dateOfFlight - receives String of date
-     * @param airplane - receives an instance of Airplane
+     * @param airPlane - receives an instance of Airplane
      * @param pilot - receives an instance of Pilot
      */
-    public Flight(int id, String origin, String destination, String dateOfFlight, Airplane airplane, Pilot pilot) {
+    public Flight(int id, String origin, String destination, String dateOfFlight, AirPlane airPlane, Pilot pilot) {
         this.dateOfCreation = new Date();
         this.origin = origin;
         this.destination = destination;
         this.dateOfFlight = dateOfFlight;
-        this.airplane = airplane;
-        this.airplane.available = false;
+        this.airPlane = airPlane;
+        this.airPlane.available = false;
         this.pilot = pilot;
         this.pilot.available = false;
         this.id = id;
@@ -58,8 +58,8 @@ public class Flight {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public void setAirplane(Airplane airplane) {
-        this.airplane = airplane;
+    public void setAirplane(AirPlane airplane) {
+        this.airPlane = airplane;
     }
 
     public void setPilot(Pilot pilot) {
@@ -99,8 +99,8 @@ public class Flight {
         return id;
     }
 
-    public Airplane getAirplane() {
-        return airplane;
+    public AirPlane getAirplane() {
+        return airPlane;
     }
 
     public Pilot getPilot() {
@@ -130,7 +130,7 @@ public class Flight {
     /**
      * Method that sets arrival time
      *
-     * @param arrivalTime
+     * @param arrivalTime - receives a String from outside methods
      */
     public void schedule(String arrivalTime) {
         this.arrivalTime = arrivalTime;
@@ -139,8 +139,8 @@ public class Flight {
     /**
      * Method that sets arrival time and departure time
      *
-     * @param departureTime
-     * @param arrivalTime
+     * @param departureTime - receives a String from outside methods
+     * @param arrivalTime - receives a String from outside methods
      */
     public void schedule(String departureTime, String arrivalTime) {
         this.arrivalTime = arrivalTime;
@@ -154,9 +154,10 @@ public class Flight {
                 + "     From: " + origin + " to " + destination + "\n"
                 + "     Flight time: " + departureTime + " to " + arrivalTime + "\n"
                 + "Plane Information: " + "\n"
-                + "     Aircraft: " + airplane.getMake() + "-" + airplane.getModel() + "\n"
-                + "     Capacity: " + airplane.capacity() + " seats" + "\n"
+                + "     Aircraft: " + airPlane.getMake() + "-" + airPlane.getModel() + "\n"
+                + "     Capacity: " + airPlane.capacity() + " seats" + "\n"
                 + "     Pilot: " + pilot.getName() + "\n"
+                + "Creation date: " + dateOfCreation + "\n"
                 + "_________________________________________________________"
                 + "\n";
     }

@@ -17,7 +17,7 @@ public class CCTAir {
     public static void main(String[] args) {
         //Array of pilots, airplanes and flights
         Pilot[] pilots = new Pilot[30];
-        Airplane[] airplanes = new Airplane[15];
+        AirPlane[] airPlanes = new AirPlane[15];
         ArrayList<Flight> flights = new ArrayList<>();
 
         // Instances of Classes
@@ -27,13 +27,13 @@ public class CCTAir {
 
         //Set Up ---------------------------------------------------------------
         pilots = setup.setPilots(pilots);
-        airplanes = setup.setAircrafts(airplanes, pilots);
-        flights = setup.setFlights(flights, airplanes, pilots);
+        airPlanes = setup.setAircrafts(airPlanes, pilots);
+        flights = setup.setFlights(flights, airPlanes, pilots);
         a.setTime(flights);
         // ---------------------------------------------------------------------
 
         //Call method Menu at Menu Class
-        menu.mainMenu(pilots, airplanes, flights);
+        menu.mainMenu(pilots, airPlanes, flights);    
 
     }
 

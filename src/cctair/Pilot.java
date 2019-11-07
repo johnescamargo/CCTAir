@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This Java Class is an object designed to store data about aircraft. 
+ * It contains a few variables related to some fictitious aircraft.
  */
 package cctair;
 
@@ -29,7 +28,7 @@ public class Pilot {
     /**
      * Constructor
      *
-     * @param pilot
+     * @param pilot - receives an object Pilot
      */
     public Pilot(Pilot pilot) {
     }
@@ -71,8 +70,8 @@ public class Pilot {
     /**
      * Method that displays a String whether Pilot is available or not available
      *
-     * @param available
-     * @return String
+     * @param available - receives a boolean from this Class
+     * @return String (piece of Text)
      */
     public String isAvailableToString(boolean available) {
         if (available == true) {
